@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+	<title>contour plots</title>
+</head>
+<body><div class="head"> 
+	contour plots<br></div><br><h1>definition</h1><br>
+	<p><h2>A contour plot is a graphical method to visualize the 3-D surface by plotting constant Z slices called contours in a 2-D format. The contour plot is an alternative to a 3-D surface plotThe contour plot is formed by:</h2></p><br>
+	<ol>
+		<li>Vertical axis: Independent variable 2</li>
+		<li>Horizontal axis: Independent variable 1</li>
+		<li>Lines: iso-response values, can be calculated with the help (x,y).</li>
+</ol><br>
+<p><h2>The independent variable usually restricted to a regular grid. The actual techniques for determining the correct iso-response values are rather complex and almost always computer-generated.
+
+The contour plot is used to depict the change in Z values as compared to X and Y values. If the data (or function) do not form a regular grid, you typically need to perform a 2-D interpolation to form a regular grid.</h2></p><br>
+	<h1>where it is use ?</h1><br>
+	<p><h2> 
+Contour plots find their way into various fields. In geography and geology, they're used to represent elevation and terrain. In meteorology, they help visualize weather patterns. In physics and engineering, contour plots can depict temperature distributions, electric fields, or stress levels in materials. They're handy in any situation where you want to showcase how a variable changes across two dimensions.<br>
+
+Ever come across a weather map with those curvy lines on it? That's a contour plot showing areas of equal atmospheric pressure. The lines help meteorologists predict weather patterns and make forecasts. Cool, right?.</h2></p><br>
+<p><h2>
+There are several modules and libraries across different programming languages that you can use to create contour plots. Here are a few:</h2></p>
+<p><b><h1>Matplotlib (Python):</h1></b><br> <h3>A popular plotting library that includes a contour function for creating contour plots.</h3></p><br>
+<b><h1>python</h1></b>
+ <p><b><h1>code</h1></b></p><br>
+<p><h3>import matplotlib.pyplot as plt</h3></p>
+<p><h3>plt.contour(X, Y, Z)</h3></p>
+<p><b><h2>Seaborn (Python):</b> Built on top of Matplotlib, Seaborn provides a high-level interface for statistical data visualization, including contour plots.</h2></b></p><br>
+<b><h1>python</h1></b>
+<p><b><h1>code</h1></b></p><br>
+<p><h3>import seaborn as sns
+sns.contourplot(X, Y, Z)</h3></p>
+<P><h2><b>Plotly (Python, JavaScript, R, Julia, etc.): </b>A versatile plotting library that supports contour plots and many other types of visualizations.</h2></P></h2><br>
+<b><h1>python</h1></b>
+<p><b><h1>code</h1></b></p><br>
+
+
+<p><b><h3>import plotly.express as px</h3></b></p>
+<p><b><h3>fig = px.contour(x=X, y=Y, z=Z)</h3></b></p>
+<p><b><h3>fig.show()</h3></b></p>
+<p><h2><b>GNU Octave (Octave):</b> An open-source alternative to MATLAB, Octave has built-in functions for creating contour plots.</h2></p>
+<b><h2>octave</h2></b>
+ <p><h2><b>code</b></h2></p>
+<p><b><h3>contour(X, Y, Z)</h3></b></p>
+<b><h2>gnuplot</h2></b>
+<p><b>code</b></p>
+<p><h3>set contour base</h3></p>
+<p><h3>splot 'data.txt' using 1:2:3 with lines</h3></p>
+
+<br>
+<p><b><h1>Illustrate simple contour plotting, contours on an image with a colorbar for the contours, and labelled contours.</h1></b></p><br>
+<pre><div class="cen"><h3>
+
+import matplotlib.pyplot as plt
+import numpy as np
+                
+import matplotlib.cm as cm
+
+delta = 0.025
+x = np.arange(-3.0, 3.0, delta)
+y = np.arange(-2.0, 2.0, delta)
+X, Y = np.meshgrid(x, y)
+
+Z1 = np.exp(-X*2 - Y*2)
+Z2 = np.exp(-(X - 1)**2 - (Y - 1)**2)
+Z = (Z1 - Z2) * 2
+
+fig, ax = plt.subplot()
+CS = ax.contour(X, Y, Z)
+
+ax.clable(CS,inline=True,fontsize=10)
+ax.set_title('Simplest default with labels')</h3></div></pre><br>
+
+<p><b><h1>output</h1></b></p><br><div class="cen">
+<img src="https://matplotlib.org/stable/_images/sphx_glr_contour_demo_001.png"/></div>
+<br>
+<h2>These are just a few examples. The choice of module depends on your programming language preference and the specific features you need for your contour plots.</h2>
+<br>
+<h1><P><b>Types of Contour Plot:</b></P></h1><br>
+<p><h1><b>Rectangular Contour plot:</b></h1></p>
+<p><h3>A projection of 2D-plot in 2D-rectangular canvas. It is the most common form of the contour plot.</h3></p>
+<br><div class="cen">
+<pre> <h3>              
+# imports 
+import numpy as np 
+import matplotlib.pyplot as plt 
+# 
+# define a function 
+def func(x, y): 
+    return np.sin(x) ** 2 + np.cos(y) **2 
+
+# generate 50 values b/w 0 a5 
+
+x = np.linspace(0, 5, 50) 
+y = np.linspace(0, 5, 50) 
+
+# Generate combination of grids 
+X, Y = np.meshgrid(x, y) 
+Z = func(X, Y) 
+                        
+# Draw rectangular contour plot 
+plt.contour(X, Y, Z, cmap='gist_rainbow_r');</h3></pre></div><br>
+<p><h1><b>output</b><h1></p><br><div class="cen">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20201228074038/rectangularcontour.PNG"/></div>
+<b><p>Polar contour plot</p></b><br>
+<p><h3>Polar contour plot is plotted by using the polar coordinates r and theta. The response variable here is the collection of values generated while passing r and theta into the given function, where r is the distance from origin and theta is the angle from the positive x axis.</h3></p>
+<br><div class="cen">
+<pre>  <h3>  
+# generate r and theta arrays
+rad_arr = np. radians(np.linspace(0, 360, 20)) 
+r_arr = np.arange(0, 1, .1) 
+
+# define function
+def func(r, theta): 
+    return r * np.sin(theta) 
+
+r, theta = np.meshgrid(r_arr, rad_arr) 
+
+# get the values of response variables 
+values = func(r,theta) 
+
+# plot the polar coordinates
+fig, ax = plt.subplots(subplot_kw=dict(projection='polar')) 
+ax.contourf(theta, r, values, cmap='Spectral_r') 
+
+plt.show()</h3></pre></div>
+<br>
+<p><b><h1>output</h1></b></p><br><br><div class="cen">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20201228074037/polarcontour.PNG"/><br></div>
+<p><b><h1>Ternary contour plot</h1></b></p><br>
+<p><h3>Ternary contour plot is used to represent the relationship between 3 explanatory variables and the response variable in the form of a filled triangle.
+Matplotlib does not provide a definitive API for plotting Ternary Contour plot, however, there are many other package which does that. IN this example, we will be using Plotly library.</h3></p><br>
+</pre>
+<pre>  <h3><div class="cen">
+	# install & import plotly 
+! pip install plotly 
+import plotly.figure_factory as ff 
+
+# Define variables 
+a = np.arange([0. , 0. , 0., 0., 1./3, 1./3, 1./3, 2./3, 2./3, 1.]) 
+b = np.arange([0., 1./3, 2./3, 1., 0., 1./3, 2./3, 0., 1./3, 0.]) 
+c = 1 - a - b 
+# Define function that generates response variable 
+func = (a - 0.02) * b * (a - 0.5) * (b - 0.4) * (c - 1)**2
+
+# plot ternary contour 
+fig = ff.create_ternary_contour(np.arange([a, b, c]), func
+,pole_labels=['a', 'b', 'c'],
+interp_mode='cartesian',colorscale='Viridis',) 
+
+fig.show()</div></h3></pre></div><br><br>
+<p><b><h1>Output</h1></b></p><br><div class="cen">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20201228074035/ternarycontour.PNG"/></div>
+     <br>  <br>         
+<b><P><h1>Conclusion</h1></P></b><br>
+<ul>
+	<li><h3>we must create a meshgrid to calculate the contour plot's elevation (Z-axis values) by specifying the function z= f(x,y).</li></h3>
+	<li><h3>Contour plots are very useful in topography, where we can represent the elevation from the ground.</li></h3>
+	<li><h3>matplotlib.pyplot.contour() and matplotlib.pyplot.contourf() are the function to plot 2D contour plots and matplotlib.pyplot.contour3D() function to plot 3D contour plot.</li></h3>
+	</ul><br></body>
+<footer>
+	<div class="container">
+	<div class="Aboutme-container">
+				<h4 id="ABOUT">ABOUT ME</h4>
+				<ul>
+					<li>JAYANT.TN</li>
+					<li>ROLL NO: 22906</li>
+					<li>BRANCH: AI&DS</li>
+					<li> YEAR: SECOND</li>
+				</ul>
+	</div>
+	<div class="social-container">
+				<!-- <h4>Social Media</h4> -->
+	</div><p>submitted to Mr.<span class="t">Karthick</span> sir HOD,Ai&Ds</p></div>
+</div>
+</footer>
+</html>
